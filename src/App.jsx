@@ -1,38 +1,39 @@
-import React, { useRef, useState } from "react";
+import React, { useReducer, useRef, useState } from "react";
+import TasksReducer from "./TasksReducer";
 
 export default function App() {
   const [input, setInput] = useState("");
-  const [tasks, setTasks] = useState([]);
+  const [tasks, dispatch] = useReducer(TasksReducer, []);
   const dialougeRef = useRef();
   const inputRef = useRef(null);
 
   const addTaskHandler = () => {
-    if (!input) return alert("You just put nothing!");
-
-    const newTask = {
-      complete: false,
+    dispatch({
+      type: "added",
       input,
-    };
-    setTasks([...tasks, newTask]);
+    });
+
     setInput("");
     inputRef.current.focus();
   };
   const handleDeleteTask = (i, e) => {
     e.stopPropagation();
-    setTasks(tasks.filter((_, idx) => idx !== i));
+    dispatch({
+      type: "deleted",
+      i,
+    });
   };
   const handleCompleteTask = (i) => {
-    const updatedTasks = tasks.map((task, idx) => {
-      if (idx === i) {
-        return { ...task, complete: !task.complete };
-      }
-      return task;
+    dispatch({
+      type: "completed",
+      id: i,
     });
-    setTasks(updatedTasks);
   };
   const handleDeleteAll = () => {
     dialougeRef.current.close();
-    setTasks([]);
+    dispatch({
+      type: "deleteAll",
+    });
   };
 
   return (
