@@ -1,12 +1,56 @@
-# React + Vite
+# ✅ Task Manager App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and beautiful **Task Manager** built with **React**, **Vite**, and **Tailwind CSS**. Add your daily tasks, mark them as complete, delete individual tasks, or clear all with confirmation. Clean UI and smooth interactions make task management fun and easy.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ Add new tasks
+- ✅ Mark tasks as complete/incomplete
+- ✅ Delete individual tasks
+- ✅ Confirm before deleting all tasks
+- ✅ Responsive design and smooth UI
+- ✅ Keyboard support (Press Enter to add task)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+- ⚛️ React
+- ⚡ Vite
+- 🎨 Tailwind CSS
+
+---
+
+
+## 📄 License 
+This project is open-source and available under the MIT License.
+
+---
+## 🧠 How to Use ?
+
+1️⃣ Clone the Repo -
+git clone https://github.com/hridoyf4113a/Task-App.git
+cd practice-club
+
+2️⃣ Install Dependencies -
+npm install
+
+3️⃣ Run the App -
+npm run dev
+Now visit: http://localhost:5173
+
+## 💡 Future Improvements
+ Persist tasks using localStorage
+
+ Filter tasks (All, Completed, Active)
+
+ Add dark/light mode toggle
+
+ Add animation on task completion
+
+## 👨‍💻 Author
+Hridoy Ahmed
+🚀 Fullstack Developer (React, MENN Stack Enthusiast)
+📧 Connect: [hridoyahamad42@gmail.com/hridoyf4113a]
