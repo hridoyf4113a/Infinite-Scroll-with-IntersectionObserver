@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.btn-primary {
+  @apply p-4 bg-gray-800 text-lg rounded-md ml-4 font-extrabold active:scale-95 cursor-pointer;
+}
