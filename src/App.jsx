@@ -1,11 +1,33 @@
-import React, { useReducer, useRef, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import TasksReducer from "./TasksReducer";
 
 export default function App() {
   const [input, setInput] = useState("");
-  const [tasks, dispatch] = useReducer(TasksReducer, []);
+  const [tasks, dispatch] = useReducer(TasksReducer, [], () => {
+    const stored = localStorage.getItem("tasks");
+    return stored ? JSON.parse(stored) : [];
+  });
   const dialougeRef = useRef();
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === "Space" && document.activeElement !== inputRef.current) {
+        e.preventDefault();
+        inputRef.current.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   const addTaskHandler = () => {
     dispatch({
@@ -95,7 +117,7 @@ export default function App() {
       >
         <ol className="list-decimal">
           {tasks.length === 0 ? (
-            <p className="mt-10 text-2xl text-bold"> No Tasks Yet.</p>
+            <p className="mt-10 text-2xl font-bold"> No Tasks Yet.</p>
           ) : (
             tasks.map((task, idx) => (
               <li key={idx}>

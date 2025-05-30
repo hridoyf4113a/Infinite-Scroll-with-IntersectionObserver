@@ -1,7 +1,10 @@
-export default function (tasks, action) {
+export default function TaskReducer(tasks, action) {
   switch (action.type) {
     case "added": {
-      if (!action.input) return alert("You just put nothing!");
+      if (!action.input) {
+        alert("You just put nothing!");
+        return tasks;
+      }
 
       const newTask = {
         complete: false,
@@ -27,5 +30,7 @@ export default function (tasks, action) {
       });
       return updatedTasks;
     }
+    default:
+      return tasks;
   }
 }
