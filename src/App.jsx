@@ -59,7 +59,7 @@ export default function App() {
   };
 
   return (
-    <div className="h-screen w-full bg-gray-900 relative">
+    <div className="min-h-screen w-full bg-gray-900">
       <dialog
         style={{ transform: "translate(-50%, -50%)" }}
         ref={dialougeRef}
@@ -104,7 +104,11 @@ export default function App() {
           Add
         </button>
         <button
-          onClick={() => dialougeRef.current.showModal()}
+          onClick={() => {
+            if (tasks.length === 0)
+              return alert("There is no tasks to delete!");
+            dialougeRef.current.showModal();
+          }}
           className="bg-red-800 py-[7px] hover:text-white text-white/80 transition-all cursor-pointer active:scale-95 text-lg px-4 rounded-md font-extrabold ml-3"
         >
           Delete All
