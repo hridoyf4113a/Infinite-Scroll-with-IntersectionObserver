@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
-.btn-primary {
-  @apply p-4 bg-gray-800 text-lg rounded-md ml-4 font-extrabold active:scale-95 cursor-pointer;
+.btn-regular {
+  @apply px-4 py-2 bg-gray-800 text-lg text-white rounded-md font-extrabold active:scale-95 cursor-pointer;
+}
+
+.layout {
+  @apply bg-gray-950 text-white h-screen w-full flex flex-col justify-center items-center;
 }
